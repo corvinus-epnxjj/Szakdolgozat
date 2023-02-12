@@ -28,13 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.ordersDataGridView = new System.Windows.Forms.DataGridView();
+            this.createOrderButton = new System.Windows.Forms.Button();
+            this.deleteOrderButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // ordersDataGridView
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ordersDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.ordersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ordersDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ordersDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.ordersDataGridView.Name = "ordersDataGridView";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ordersDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.ordersDataGridView.RowHeadersWidth = 51;
+            this.ordersDataGridView.RowTemplate.Height = 24;
+            this.ordersDataGridView.Size = new System.Drawing.Size(754, 276);
+            this.ordersDataGridView.TabIndex = 0;
+            // 
+            // createOrderButton
+            // 
+            this.createOrderButton.Location = new System.Drawing.Point(12, 304);
+            this.createOrderButton.Name = "createOrderButton";
+            this.createOrderButton.Size = new System.Drawing.Size(173, 42);
+            this.createOrderButton.TabIndex = 1;
+            this.createOrderButton.Text = "Create";
+            this.createOrderButton.UseVisualStyleBackColor = true;
+            this.createOrderButton.Click += new System.EventHandler(this.createOrderButton_Click);
+            // 
+            // deleteOrderButton
+            // 
+            this.deleteOrderButton.Location = new System.Drawing.Point(205, 304);
+            this.deleteOrderButton.Name = "deleteOrderButton";
+            this.deleteOrderButton.Size = new System.Drawing.Size(173, 42);
+            this.deleteOrderButton.TabIndex = 2;
+            this.deleteOrderButton.Text = "Delete";
+            this.deleteOrderButton.UseVisualStyleBackColor = true;
+            this.deleteOrderButton.Click += new System.EventHandler(this.deleteOrderButton_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1253, 450);
+            this.Controls.Add(this.deleteOrderButton);
+            this.Controls.Add(this.createOrderButton);
+            this.Controls.Add(this.ordersDataGridView);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.ordersDataGridView)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView ordersDataGridView;
+        private System.Windows.Forms.Button createOrderButton;
+        private System.Windows.Forms.Button deleteOrderButton;
     }
 }
 

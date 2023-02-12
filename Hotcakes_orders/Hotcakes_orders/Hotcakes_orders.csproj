@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hotcakes.CommerceDTO">
+      <HintPath>..\..\..\..\..\..\..\hotcakes-commerce-core-development\DevSamples\References\Hotcakes.CommerceDTO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +72,63 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.ApiError.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.ApiOperation.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.CatalogRoleDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.CategoryDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.CategoryPeerSetDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.CategoryProductAssociationDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.CategorySnapshotDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ClearProductsData.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.GiftCardDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.OptionDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.OptionItemDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.OptionSelectionDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.OptionSettingDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.PageOfProducts.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductDescriptionTabDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductFileDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductImageDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductInventoryDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductPropertyChoiceDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductPropertyDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductRelationshipDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductReviewDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductTypeDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductVariantSkuUpdateDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.ProductVolumeDiscountDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.VariantDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.VariantOptionDataDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Catalog.WishListItemDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Client.Api.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Client.RestHelper.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Contacts.AddressDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Contacts.AffiliateDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Contacts.AffiliateReferralDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Contacts.PhoneNumberDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Contacts.PriceGroupDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Contacts.VendorManufacturerDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.CustomPropertyDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.IApiResponse.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Marketing.DiscountDetailDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Membership.CustomerAccountDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Membership.UserSearchCriteriaDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.LineItemDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderCouponDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderNoteDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderPackageDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderPackageItemDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderSnapshotDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderTransactionCardDataDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderTransactionDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.OrderTransactionGiftCardDataDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Orders.SalesSummaryDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Shipping.ShippableItemDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Taxes.TaxDTO.datasource" />
+    <None Include="Properties\DataSources\Hotcakes.CommerceDTO.v1.Taxes.TaxScheduleDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
