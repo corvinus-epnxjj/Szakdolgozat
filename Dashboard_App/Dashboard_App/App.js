@@ -28,12 +28,14 @@ export default function App() {
   const [oneplus, setOneplus] = useState(0);
   const [asus, setAsus] = useState(0);
   const [zfold, setZfold] = useState(0);
+
+  const url = 'https://26a1-146-110-197-146.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders';
   
   useEffect(() => {
     const fetchData = async () => {
       //setIsFetching(true);
       try {
-        const orders = await axios.get('https://ad6f-146-110-197-146.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders?key=1-89fe088e-4b8f-4762-8012-09251c42276c', {
+        const orders = await axios.get(url + '?key=1-89fe088e-4b8f-4762-8012-09251c42276c', {
           headers: {
             'Content-Type':'application/json'
           }
@@ -41,7 +43,7 @@ export default function App() {
         for (let i = 0; i < orders.data.Content.length; i++) {
           if(!bvin.includes(orders.data.Content[i].bvin)) {
             
-            const prod = await axios.get(`https://ad6f-146-110-197-146.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders/${orders.data.Content[i].bvin}?key=1-89fe088e-4b8f-4762-8012-09251c42276c`, {
+            const prod = await axios.get(url + `/${orders.data.Content[i].bvin}?key=1-89fe088e-4b8f-4762-8012-09251c42276c`, {
               headers: {
                 'Content-Type':'application/json'
               }
@@ -85,13 +87,13 @@ export default function App() {
     //console.log(iphone);
   }, []);
 
-  const sum = iphone + s22 + pixel + oneplus + asus + zfold;
+  var sum = iphone + s22 + pixel + oneplus + asus + zfold;
   
   const items = [
     { label: "Válassz diagramot", value: "default"},
     { label: "Oszlopdiagram", value: "oszlopdiagram" },
-    { label: "Vonaldiagram", value: "vonaldiagram" },
-    { label: "Kördiagram", value: "kördiagram" },
+    /*{ label: "Vonaldiagram", value: "vonaldiagram" },
+    { label: "Kördiagram", value: "kördiagram" },*/
   ];
 
   const barChart = {
@@ -104,7 +106,7 @@ export default function App() {
     ],
   };
 
-  const lineChart = {
+  /*const lineChart = {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
       {
@@ -122,7 +124,7 @@ export default function App() {
         color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
       },
     ],
-  };
+  };*/
 
   const generateChartData = (selectedValue) => {
     switch (selectedValue) {
@@ -132,7 +134,7 @@ export default function App() {
                     <Image source={require('./assets/cart.png')} style={styles.cart}></Image>
                     <View style={{display: 'flex', flexDirection: 'column', marginLeft: 20}}>
                       <Text style={styles.sumText}>{sum}</Text>
-                      <Text style={styles.sumText2}>Összes vásárlás</Text>
+                      <Text style={styles.sumText2}>Összes vásárlás (db)</Text>
                     </View>      
                   </View>
                   <BarChart
@@ -142,9 +144,9 @@ export default function App() {
                     yAxisSuffix=" db"
                     yAxisInterval={1}
                     yLabelsOffset={25}
-                    xLabelsOffset={-13}
+                    xLabelsOffset={-18}
                     fromZero
-                    verticalLabelRotation={40}
+                    verticalLabelRotation={90}
                     segments={5}
                     chartConfig={{
                       backgroundColor: "#3c2a69",
@@ -155,8 +157,7 @@ export default function App() {
                       labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                       barPercentage: 0.7,
                       propsForVerticalLabels: {
-                        fontSize: 10,
-                        
+                        fontSize: 9,
                       }
                     }}
                     style={{
@@ -165,7 +166,7 @@ export default function App() {
                     }}
                   />
                 </ScrollView>
-      case "vonaldiagram":
+      /*case "vonaldiagram":
         return  <View>
                   <LineChart
                     data={lineChart}
@@ -228,10 +229,10 @@ export default function App() {
                       borderRadius: 16
                     }}
                   />
-                </View>
+                </View>*/
       default:
         return  <View style={{marginTop: '60%'}}>
-                  <Text style={{color: 'white', fontSize: 20}}>Üdvözöljük az alkalmazásban,{'\n'} kérjük válasszon diagramot!</Text>
+                  <Text style={{color: 'white', fontSize: 20}}>Üdvözöljük az alkalmazásban,{'\n'}  kérjük válasszon diagramot!</Text>
                 </View>;
     }
   };
@@ -289,7 +290,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dropdown: {
-    height: 50,
     width: Dimensions.get("window").width - 50,
     backgroundColor: 'grey',
     color: 'white',
