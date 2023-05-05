@@ -20,7 +20,6 @@ export default function App() {
   const [selectedValue, setSelectedValue] = useState(null);
   const [productName, setProductName] = useState([]);
   const [bvin, setBvin] = useState([]);
-  //const [isFetching, setIsFetching] = useState(false);
 
   const [iphone, setIphone] = useState(0);
   const [s22, setS22] = useState(0);
@@ -29,11 +28,10 @@ export default function App() {
   const [asus, setAsus] = useState(0);
   const [zfold, setZfold] = useState(0);
 
-  const url = 'https://26a1-146-110-197-146.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders';
+  const url = 'https://012e-146-110-138-173.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders';
   
   useEffect(() => {
     const fetchData = async () => {
-      //setIsFetching(true);
       try {
         const orders = await axios.get(url + '?key=1-89fe088e-4b8f-4762-8012-09251c42276c', {
           headers: {
@@ -84,7 +82,6 @@ export default function App() {
     }
 
     fetchData();
-    //console.log(iphone);
   }, []);
 
   var sum = iphone + s22 + pixel + oneplus + asus + zfold;
@@ -92,8 +89,6 @@ export default function App() {
   const items = [
     { label: "Válassz diagramot", value: "default"},
     { label: "Oszlopdiagram", value: "oszlopdiagram" },
-    /*{ label: "Vonaldiagram", value: "vonaldiagram" },
-    { label: "Kördiagram", value: "kördiagram" },*/
   ];
 
   const barChart = {
@@ -106,30 +101,10 @@ export default function App() {
     ],
   };
 
-  /*const lineChart = {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [
-      {
-        data: [50, 30, 70, 40, 60, 20],
-        color: (opacity = 1) => `rgba(0, 255, 0, ${opacity})`,
-      },
-    ],
-  };
-
-  const pieChart = {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [
-      {
-        data: [10, 20, 30, 40, 50, 60],
-        color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
-      },
-    ],
-  };*/
-
   const generateChartData = (selectedValue) => {
     switch (selectedValue) {
       case "oszlopdiagram":
-        return  <ScrollView>
+        return  <View>
                   <View style={styles.summary}>
                     <Image source={require('./assets/cart.png')} style={styles.cart}></Image>
                     <View style={{display: 'flex', flexDirection: 'column', marginLeft: 20}}>
@@ -162,74 +137,10 @@ export default function App() {
                     }}
                     style={{
                       marginVertical: 20,
-                      borderRadius: 16
-                    }}
-                  />
-                </ScrollView>
-      /*case "vonaldiagram":
-        return  <View>
-                  <LineChart
-                    data={lineChart}
-                    width={Dimensions.get("window").width - 40}
-                    height={220}
-                    yAxisLabel="$"
-                    yAxisSuffix="k"
-                    yAxisInterval={1}
-                    chartConfig={{
-                      backgroundColor: "#e26a00",
-                      backgroundGradientFrom: "#fb8c00",
-                      backgroundGradientTo: "#ffa726",
-                      decimalPlaces: 2,
-                      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                      style: {
-                        borderRadius: 16
-                      },
-                      propsForDots: {
-                        r: "6",
-                        strokeWidth: "2",
-                        stroke: "#ffa726"
-                      }
-                    }}
-                    bezier
-                    style={{
-                      marginVertical: 20,
-                      borderRadius: 16
+                      borderRadius: 16,
                     }}
                   />
                 </View>
-      case "kördiagram":
-        return  <View>
-                  <LineChart
-                    data={pieChart}
-                    width={Dimensions.get("window").width - 40}
-                    height={220}
-                    yAxisLabel="$"
-                    yAxisSuffix="k"
-                    yAxisInterval={1}
-                    chartConfig={{
-                      backgroundColor: "#e26a00",
-                      backgroundGradientFrom: "#fb8c00",
-                      backgroundGradientTo: "#ffa726",
-                      decimalPlaces: 2,
-                      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                      style: {
-                        borderRadius: 16
-                      },
-                      propsForDots: {
-                        r: "6",
-                        strokeWidth: "2",
-                        stroke: "#ffa726"
-                      }
-                    }}
-                    bezier
-                    style={{
-                      marginVertical: 20,
-                      borderRadius: 16
-                    }}
-                  />
-                </View>*/
       default:
         return  <View style={{marginTop: '60%'}}>
                   <Text style={{color: 'white', fontSize: 20}}>Üdvözöljük az alkalmazásban,{'\n'}  kérjük válasszon diagramot!</Text>
@@ -237,27 +148,27 @@ export default function App() {
     }
   };
 
-  const chartData = generateChartData(selectedValue);
-
   return (
     <View style={styles.container}>
-      <Image source={require('./assets/gadGet.jpg')} style={styles.imageHeader}></Image>
-      <View style={{borderWidth: 2, borderColor: 'white', borderRadius: 5, marginTop: 10}}>
-        <Picker
-          selectedValue={selectedValue}
-          style={styles.dropdown}
-          onValueChange={(itemValue) => setSelectedValue(itemValue)}
-        >
-          {items.map((item) => (
-            <Picker.Item
-              key={item.value}
-              label={item.label}
-              value={item.value}
-            />
-          ))}
-        </Picker>
-      </View>     
-      {generateChartData(selectedValue)}
+      <ScrollView contentContainerStyle={{alignItems: 'center'}}>
+        <Image source={require('./assets/gadGet.jpg')} style={styles.imageHeader}></Image>
+        <View style={{borderWidth: 2, borderColor: 'white', borderRadius: 5, marginTop: 10}}>
+          <Picker
+            selectedValue={selectedValue}
+            style={styles.dropdown}
+            onValueChange={(itemValue) => setSelectedValue(itemValue)}
+          >
+            {items.map((item) => (
+              <Picker.Item
+                key={item.value}
+                label={item.label}
+                value={item.value}
+              />
+            ))}
+          </Picker>
+        </View>     
+        {generateChartData(selectedValue)}
+      </ScrollView>
       <View style={styles.imageFooter}>
         <ImageBackground source={require('./assets/gadGet_footer.jpg')} style={styles.imageFooter}>
           <Text style={{marginTop: 90 * ratio, color: 'white'}}>2023 Szorcsik István. Minden jog fenntartva.</Text>
@@ -272,7 +183,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1f2530',
-    alignItems: 'center',
   },
   text: {
     color: 'white',
@@ -285,9 +195,8 @@ const styles = StyleSheet.create({
   imageFooter: {
     width: win.width,
     height: 232 * ratio,
-    position: 'absolute',
-    bottom: 0,
     alignItems: 'center',
+    marginTop: 'auto',
   },
   dropdown: {
     width: Dimensions.get("window").width - 50,
