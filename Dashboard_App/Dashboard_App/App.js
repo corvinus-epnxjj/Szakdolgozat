@@ -18,7 +18,6 @@ const ratio = win.width/817;
 export default function App() { 
 
   const [selectedValue, setSelectedValue] = useState(null);
-  const [productName, setProductName] = useState([]);
   const [bvin, setBvin] = useState([]);
 
   const [iphone, setIphone] = useState(0);
@@ -28,27 +27,31 @@ export default function App() {
   const [asus, setAsus] = useState(0);
   const [zfold, setZfold] = useState(0);
 
-  const url = 'https://012e-146-110-138-173.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders';
+  const url = 'https://2c15-146-110-138-173.ngrok-free.app/DesktopModules/Hotcakes/API/rest/v1/orders';
   
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      try {                
         const orders = await axios.get(url + '?key=1-89fe088e-4b8f-4762-8012-09251c42276c', {
           headers: {
             'Content-Type':'application/json'
           }
         });
+        
         for (let i = 0; i < orders.data.Content.length; i++) {
-          if(!bvin.includes(orders.data.Content[i].bvin)) {
-            
-            const prod = await axios.get(url + `/${orders.data.Content[i].bvin}?key=1-89fe088e-4b8f-4762-8012-09251c42276c`, {
+          const currentBvin = orders.data.Content[i].bvin;
+       
+          if(!bvin.includes(currentBvin)) {        
+            setBvin(array => [...array, currentBvin]);
+
+            const prod = await axios.get(url + `/${currentBvin}?key=1-89fe088e-4b8f-4762-8012-09251c42276c`, {
               headers: {
                 'Content-Type':'application/json'
               }
             });
-            
+          
             const quantity = prod.data.Content.Items[0].Quantity;
-  
+
             switch (prod.data.Content.Items[0].ProductName) {
               case "iPhone 14 Pro":
                 setIphone(prev => prev + quantity);
@@ -69,25 +72,22 @@ export default function App() {
                 setZfold(prev => prev + quantity);
                 break;
             }
-            setProductName(array => [...array, prod.data.Content.Items[0].ProductName]);
-            setBvin(array => [...array, orders.data.Content[i].bvin]);
           }
-          else {
-            continue;
-          }     
-        }    
+        }
       } catch (error) {
         console.error(error);
       }
     }
 
-    fetchData();
-  }, []);
+    const interval = setInterval(fetchData, 5000);
+
+    return () => clearInterval(interval);
+  }, [bvin]);
 
   var sum = iphone + s22 + pixel + oneplus + asus + zfold;
   
   const items = [
-    { label: "Válassz diagramot", value: "default"},
+    { label: "Válassz diagramot", value: "default" },
     { label: "Oszlopdiagram", value: "oszlopdiagram" },
   ];
 
