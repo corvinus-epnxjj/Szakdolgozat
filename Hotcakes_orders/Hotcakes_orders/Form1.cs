@@ -27,7 +27,7 @@ namespace Hotcakes_orders
         private void createOrderButton_Click(object sender, EventArgs e)
         {
             string url = "http://www.dnndev.me";
-            string key = "1-04ef5d8f-9490-4c54-b45a-a449865431cf";
+            string key = "1-89fe088e-4b8f-4762-8012-09251c42276c";
 
             Api proxy = new Api(url, key);
 
@@ -51,10 +51,12 @@ namespace Hotcakes_orders
 
             // add at least one line item
             order.Items = new List<LineItemDTO>();
+
             order.Items.Add(new LineItemDTO
             {
-                ProductId = "dfcae0ee-8bcf-4321-8b31-7883b5434285",
-                Quantity = 1
+                ProductId = "7E824F8F-2DD4-49BB-8D99-69E96818C611",
+                Quantity = 1,
+                ProductName = "iPhone 14"
             });
 
             // add the shipping address
@@ -75,7 +77,7 @@ namespace Hotcakes_orders
         private void deleteOrderButton_Click(object sender, EventArgs e)
         {
             string url = "http://www.dnndev.me";
-            string key = "1-04ef5d8f-9490-4c54-b45a-a449865431cf";
+            string key = "1-89fe088e-4b8f-4762-8012-09251c42276c";
 
             Api proxy = new Api(url, key);
 
@@ -94,7 +96,7 @@ namespace Hotcakes_orders
         public void GetOrders()
         {
             string url = "http://www.dnndev.me";
-            string key = "1-04ef5d8f-9490-4c54-b45a-a449865431cf";
+            string key = "1-89fe088e-4b8f-4762-8012-09251c42276c";
 
             Api proxy = new Api(url, key);
 

@@ -1,4 +1,3 @@
-C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\bin\Debug\orders\orders.csv
 C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\bin\Debug\Hotcakes_orders_data_reading.exe.config
 C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\bin\Debug\Hotcakes_orders_data_reading.exe
 C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\bin\Debug\Hotcakes_orders_data_reading.pdb
@@ -18,3 +17,4 @@ C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_re
 C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\obj\Debug\Hotcakes_orders_data_reading.csproj.CopyComplete
 C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\obj\Debug\Hotcakes_orders_data_reading.exe
 C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\obj\Debug\Hotcakes_orders_data_reading.pdb
+C:\Users\szorc\source\repos\Szakdolgozat\Hotcakes_orders\Hotcakes_orders_data_reading\bin\Debug\orders\orders.csv
